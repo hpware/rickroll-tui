@@ -71,3 +71,15 @@ docker build -t rickroll-tui .
 docker run -d --name rickroll-tui --restart unless-stopped -p 2222:2222 \
   -v rickroll-data:/data -e RICKROLL_HOST_KEY=/data/host_key.pem rickroll-tui
 ```
+
+## One-command install inside an LXC
+
+Run as root inside a Debian 13 or Ubuntu 24.04+ LXC (requires curl):
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/hpware/rickroll-tui/main/scripts/quick-install.sh | bash
+```
+
+Downloads the main branch and installs build dependencies and the systemd service.
+No Git or Docker needed. For a custom port, use `| bash -s -- 2200`.
+This installs into an existing LXC; it does not create the container.
