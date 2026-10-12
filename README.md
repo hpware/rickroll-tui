@@ -13,13 +13,18 @@ Space pauses/resumes. This is a cartoon animation, not a conversion of the music
 
 ## Create a Proxmox LXC
 
-Download a **Debian 13 or Ubuntu 24.04+** template in Proxmox first. On the
-Proxmox host as root, run (replace CT ID, template, storage and bridge):
+Run this on your **Proxmox VE host as root**, not inside an LXC:
 
 ```sh
-git clone https://github.com/jsserve-org/rickroll-tui.git
-cd rickroll-tui
-./scripts/create-lxc.sh 120 local:vztmpl/YOUR_TEMPLATE.tar.zst local-lvm vmbr0
+curl -fsSL https://raw.githubusercontent.com/jsserve-org/rickroll-tui/main/scripts/proxmox-install.sh | bash
+```
+
+Automatically chooses the next free CT ID and active container/template storage,
+downloads the latest Debian 13 template and creates and starts the LXC on `vmbr0`.
+DHCP is required. Override selections when needed:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jsserve-org/rickroll-tui/main/scripts/proxmox-install.sh | BRIDGE=vmbr1 STORAGE=local-lvm CTID=120 bash
 ```
 
 Creates an unprivileged container with DHCP, 1 CPU, 1 GiB RAM and a 4 GiB disk,
