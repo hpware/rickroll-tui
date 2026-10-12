@@ -9,6 +9,6 @@ tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 apt-get update
 apt-get install -y ca-certificates curl tar gzip golang-go
-curl -fsSL https://github.com/hpware/rickroll-tui/archive/refs/heads/main.tar.gz -o "$tmp/source.tar.gz"
+curl -fsSL https://github.com/jsserve-org/rickroll-tui/archive/refs/heads/main.tar.gz -o "$tmp/source.tar.gz"
 tar -xzf "$tmp/source.tar.gz" --strip-components=1 -C "$tmp"
 bash "$tmp/scripts/install.sh" "$port"

@@ -17,7 +17,7 @@ Download a **Debian 13 or Ubuntu 24.04+** template in Proxmox first. On the
 Proxmox host as root, run (replace CT ID, template, storage and bridge):
 
 ```sh
-git clone https://github.com/hpware/rickroll-tui.git
+git clone https://github.com/jsserve-org/rickroll-tui.git
 cd rickroll-tui
 ./scripts/create-lxc.sh 120 local:vztmpl/YOUR_TEMPLATE.tar.zst local-lvm vmbr0
 ```
@@ -33,7 +33,7 @@ Docker and LXC nesting are not required. Allow inbound TCP 2222 in your firewall
 Use Debian 13 or Ubuntu 24.04+ with systemd and root SSH access:
 
 ```sh
-git clone https://github.com/hpware/rickroll-tui.git
+git clone https://github.com/jsserve-org/rickroll-tui.git
 cd rickroll-tui
 ./deploy.sh root@LXC_IP
 # Optional custom port:
@@ -43,7 +43,7 @@ cd rickroll-tui
 Or run inside the LXC as root:
 
 ```sh
-git clone https://github.com/hpware/rickroll-tui.git
+git clone https://github.com/jsserve-org/rickroll-tui.git
 cd rickroll-tui
 ./scripts/install.sh
 ```
@@ -77,7 +77,7 @@ docker run -d --name rickroll-tui --restart unless-stopped -p 2222:2222 \
 Run as root inside a Debian 13 or Ubuntu 24.04+ LXC (requires curl):
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/hpware/rickroll-tui/main/scripts/quick-install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/jsserve-org/rickroll-tui/main/scripts/quick-install.sh | bash
 ```
 
 Downloads the main branch and installs build dependencies and the systemd service.

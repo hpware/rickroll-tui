@@ -15,6 +15,6 @@ pct create "$CTID" "$TEMPLATE" --hostname rickroll --unprivileged 1 \
 pct start "$CTID"
 # Allow DHCP/DNS to settle before the first package install.
 pct exec "$CTID" -- bash -c 'for i in {1..30}; do getent hosts deb.debian.org >/dev/null && exit 0; sleep 1; done; exit 1'
-pct exec "$CTID" -- bash -c 'set -eu; apt-get update; apt-get install -y git ca-certificates; git clone https://github.com/hpware/rickroll-tui.git /opt/rickroll-src; bash /opt/rickroll-src/scripts/install.sh'
+pct exec "$CTID" -- bash -c 'set -eu; apt-get update; apt-get install -y git ca-certificates; git clone https://github.com/jsserve-org/rickroll-tui.git /opt/rickroll-src; bash /opt/rickroll-src/scripts/install.sh'
 pct exec "$CTID" -- hostname -I
 echo 'Ready: ssh -tt -p 2222 anyone@LXC_IP (use the address above).'
