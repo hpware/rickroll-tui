@@ -1,0 +1,4 @@
+.git
+*.pem
+host_key*
+.rickroll-tui
